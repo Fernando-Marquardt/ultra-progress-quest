@@ -1,2 +1,3 @@
-# ultra-progress-quest
+# Ultra ProgressQuest
+
 Java version of ProgressQuest.
