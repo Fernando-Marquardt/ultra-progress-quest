@@ -3,6 +3,8 @@ package com.progressquest.ultra;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,15 +36,17 @@ public class FrontForm extends JFrame {
     public FrontForm() {
         initForm();
         initComponents();
+        initEvents();
     }
 
     private void initForm() {
         setResizable(false);
         setTitle("Ultra Progress Quest");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         getContentPane().setBackground(Color.WHITE);
-        getContentPane().setLayout(new BorderLayout(10, 0));
-        ((JPanel) getContentPane()).setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        getContentPane().setLayout(new BorderLayout(10, 10));
+        ((JPanel) getContentPane()).setBorder(BorderFactory.createEmptyBorder(20, 20, 10, 20));
 
         List<Image> icons = new ArrayList<>();
         icons.add(Resources.APP_ICON_64);
@@ -92,6 +96,22 @@ public class FrontForm extends JFrame {
         add(copyrightPanel, BorderLayout.SOUTH);
 
         pack();
+    }
+
+    private void initEvents() {
+        newSinglePlayerBtn.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                createNewCharacter();
+            }
+        });
+    }
+
+    private void createNewCharacter() {
+        NewCharacterForm form = new NewCharacterForm(this, true);
+        form.setLocationRelativeTo(this);
+        form.setVisible(true);
     }
 
 }
