@@ -9,6 +9,8 @@ public class Resources {
 
     public static final Image LOGO_IMG;
 
+    public static final Image NEW_CHARACTER_IMG;
+
     public static final Image APP_ICON_64;
     public static final Image APP_ICON_32;
     public static final Image APP_ICON_16;
@@ -16,6 +18,8 @@ public class Resources {
     static {
         try {
             LOGO_IMG = ImageIO.read(Resources.class.getResource("/images/logo.png"));
+
+            NEW_CHARACTER_IMG = ImageIO.read(Resources.class.getResource("/images/unknown.png"));
 
             APP_ICON_64 = ImageIO.read(Resources.class.getResource("/icons/app_icon_64.png"));
             APP_ICON_32 = ImageIO.read(Resources.class.getResource("/icons/app_icon_32.png"));
